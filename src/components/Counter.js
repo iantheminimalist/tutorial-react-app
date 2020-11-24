@@ -9,14 +9,24 @@ function countInitial(){
 export function Counter(){
 
 const [ count, setCount ] = useState( () => countInitial());
-
+const [ word, setWord ] = useState ('');
 
 function decrement(){
-    setCount( count => count - 1 );
+  setCount( count => count - 1 );
+    if ((count % 2) === 0){
+      setWord('EVEN');
+      }else{
+          setWord("ODD");
+          }
 }
 
 function increment(){
     setCount( count => count + 1);
+    if ((count % 2) === 0){
+        setWord('EVEN');
+        }else{
+            setWord("ODD");
+            }
 }
 
     return (
@@ -25,7 +35,7 @@ function increment(){
             <div>
                 
                 <button onClick={decrement}>-</button> 
-                <span>  {count}  </span>
+                    <span>  {count}  {word}  </span>
                 <button onClick={increment}>+</button>
                 </div>
 
