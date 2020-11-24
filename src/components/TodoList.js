@@ -40,11 +40,12 @@ export default function TodoList() {
 
     return (
         <div className="App-header">
+            <h3>TodoList V.1</h3>
             <TodoForm addTodo={addTodo}/>
            <div>
-               {todos.map( (todo, index) => (
+               { todos.map( (todo, index) => (
                   <Todo key={index} index={index} todo={todo} />
-               ))}
+               )) }
            </div>
         </div>
     )

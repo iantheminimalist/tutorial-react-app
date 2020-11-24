@@ -6,6 +6,7 @@ import { Counter } from './components/Counter';
 import InputHookArrays from './components/InputHookArrays';
 import InputHookObjects from './components/InputHookObjects';
 import TodoList from './components/TodoList';
+import TodoListV2 from './components/TodoListV2'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <InputHookObjects />
       <InputHookArrays />
       <TodoList />
+      <TodoListV2 />
     </div>
   );
 }
