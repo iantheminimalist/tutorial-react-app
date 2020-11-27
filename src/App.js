@@ -8,6 +8,7 @@ import InputHookObjects from './components/InputHookObjects';
 import TodoList from './components/TodoList';
 import TodoListV2 from './components/TodoListV2';
 import CounterV2 from './components/reducer/CounterV2';
+import InputReducer from './components/reducer/InputReducer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <TodoList />
       <TodoListV2 />
       <CounterV2 />
+      <InputReducer />
     </div>
   );
 }
