@@ -1,16 +1,13 @@
 import React, { useReducer, useState } from 'react';
 import Todo from './Todo'
-
-export const ACTIONS = {
-    ADD_TODO: 'add-todo',
-    TOGGLE_TODO: 'toggle-todo',
-    DELETE_TODO: 'delete-todo'
-};
+import { ACTIONS } from './ActionTypes';
+import { addTodo } from './ActionCreators';
+import CompletedTodo from './CompletedTodo';
 
 function reducer(todos, action ){
     switch(action.type){
         case ACTIONS.ADD_TODO:
-            return [...todos, addTodo(action.payload.name)];
+            return [...todos, addTodo(todos , action.payload.name)];
         case ACTIONS.TOGGLE_TODO:
             return todos.map( todo => {
                 if(todo.id === action.payload.id){
@@ -25,9 +22,6 @@ function reducer(todos, action ){
     }
 }
 
-function addTodo(name){
-    return { id: name.length, name: name, complete: false }
-};
 
 export default function InputReducer() {
     const [ todos , dispatch ] = useReducer( reducer, [] )
@@ -40,7 +34,7 @@ export default function InputReducer() {
         setName("");
     }
 
-console.log(todos);
+    console.log(todos);
     return (
         <div className="App-header">
             <h3>useReducer with useState example input Form</h3> 
@@ -53,9 +47,11 @@ console.log(todos);
                     />
             </form>
             {todos.map( todo => {
-               return  <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+              return  <Todo key={todo.id} todo={todo} dispatch={dispatch} />
             })}
-            {JSON.stringify(todos)}
+            <div>
+            <CompletedTodo todos={todos} />
+            </div>
         </div>
     )
 }

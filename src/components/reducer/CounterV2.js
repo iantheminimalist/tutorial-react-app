@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 
-const ACTIONS = {
+export const ACTIONS = {
     INCREMENT: 'increment',
     DECREMENT: 'decrement'
 };
