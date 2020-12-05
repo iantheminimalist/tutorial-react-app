@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react';
-import Todo from './Todo'
+import Todo from './Todo';
 import { ACTIONS } from './ActionTypes';
 import { addTodo } from './ActionCreators';
 import CompletedTodo from './CompletedTodo';
@@ -23,10 +23,10 @@ function reducer(todos, action ){
 }
 
 
-export default function InputReducer() {
+export default function TodoListV4() {
     const [ todos , dispatch ] = useReducer( reducer, [] )
     const [ name , setName ] = useState('');
-
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -44,8 +44,10 @@ export default function InputReducer() {
                     name="name"
                     value={name}
                     onChange={ e => setName(e.target.value) } 
-                    />
+                />
+                <button onSubmit={handleSubmit} >Submit</button>
             </form>
+            
             {todos.map( todo => {
               return  <Todo key={todo.id} todo={todo} dispatch={dispatch} />
             })}

@@ -8,7 +8,9 @@ import InputHookObjects from './components/InputHookObjects';
 import TodoList from './components/TodoList';
 import TodoListV2 from './components/TodoListV2';
 import CounterV2 from './components/reducer/CounterV2';
-import InputReducer from './components/reducer/InputReducer';
+
+import TodoListV4 from './components/reducer/todolist/TodoListV4';
+import UserSignUp from './components/reducer/UserInputReducer.js/UserSignUp';
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
       <TodoList />
       <TodoListV2 />
       <CounterV2 />
-      <InputReducer />
+      <TodoListV4 />
+      <UserSignUp />
     </div>
   );
 }
