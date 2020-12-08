@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react';
 
-const ACTIONS2 = {
+const ACTIONS = {
     ADD_USER : 'ADD_USER'
 }
  function addUser( state, firstname, lastname ){
@@ -9,7 +9,7 @@ const ACTIONS2 = {
 
 function reducer(state, action ){
     switch(action.type){
-        case ACTIONS2.ADD_USER:
+        case ACTIONS.ADD_USER:
             return [...state, addUser(state , action.payload.firstname, action.payload.lastname)];
         default:
             return state;
@@ -26,7 +26,7 @@ export default function UserSignUp() {
     
  const handleSubmit = (e) => {
      e.preventDefault();
-     dispatch({ type: ACTIONS2.ADD_USER, payload: {firstname: firstname , lastname: lastname} });
+     dispatch({ type: ACTIONS.ADD_USER, payload: {firstname: firstname , lastname: lastname} });
      setFirstname('');
      setLastname('');
  }
@@ -50,7 +50,7 @@ export default function UserSignUp() {
                 onChange={ e => setLastname(e.target.value)}
                 required
             />
-                            <button onSubmit={handleSubmit} >Submit</button>
+        <button onSubmit={handleSubmit} >Submit</button>
         </form>
         {JSON.stringify(state)}
     
